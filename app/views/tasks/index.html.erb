@@ -1,18 +1,12 @@
-<% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-  <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
+<p>ログイン完了ユーザ: <%= current_user.name %></p>
+<%= link_to 'Logout', session_path(current_user.id), method: :delete %>
   
-  <h1>タスク一覧</h1>
+<h1>タスク一覧</h1>
 
-  <ul>
-    <% @tasks.each do |task| %>
-      <li><%= link_to task.id, task %> : <%= task.content %> &gt; <%= task.status %></li>
-    <% end %>
-  </ul>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= link_to task.id, task %> : <%= task.content %> &gt; <%= task.status %></li>
+  <% end %>
+</ul>
 
-  <%= link_to '新規タスクの追加', new_task_path %>
-
-<% else %>
-  <%= link_to 'Sign up now!', new_user_path, class: 'btn btn-lg btn-primary' %>
-  <%= link_to 'Login', new_session_path, class: 'nav-link' %>
-<% end %>
+<%= link_to '新規タスクの追加', new_task_path %>
